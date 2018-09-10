@@ -172,10 +172,10 @@
 
 			<section class="subs">
 				<h2 class="headline">Подпишитесь на новости</h2>
-				<form class="subs__form" action="" method="post">
-					<input class="subs__input" type="text" placeholder="Email" />
-					<button class="btn  btn--filled  subs__button" type="submit">Жду новостей</button>
-				</form>
+				<%= form_for [@subscription, Subscription.new], remote: true, html: {class: "subs__form"}  do |f| %>
+                    <%= f.email_field :email, placeholder: "Email", required: true, class: "subs__input" %>
+                    <%= f.button t('Жду новостей'), class: "btn  btn--filled  subs__button" %>
+                 <% end %>
 				<p class="subs__text">Мы будем писать только по делу.</p>
 			</section><!-- .subs -->
 
@@ -191,15 +191,13 @@
 
 </div><!-- .wrapper -->
 </div><!-- .container -->
-<section class="modal  moda-write-us" id="write-us">
+<section class="modal moda-write-us mfp-hide" id="write-us">
 	<div class="modal__outer">
-		<h2 class="visually-hidden">Отавьте Ваш телефон и наш менеджер свяжется с Вами</h2>
-		<form class="modal__inner" method="post" action="https://echo.htmlacademy.ru">
-
-			<input class="modal__input" id="write-us-name" type="text" name="name" placeholder="Ваше имя" value="" required />
-			
-			<input class="modal__input" id="write-us-phone" type="tel" name="phone" placeholder="Ваш телефон" value="" required />
-			<button class="btn  btn--filled  modal__button" type="submit">Жду звонка</button>
-		</form>
+		<h2 class="visually-hidden">Оставьте Ваш телефон</h2>
+		<%= form_for [@call, Call.new], remote: true, html: {class: "modal__inner"}  do |f| %>
+           <%= f.text_field :name, placeholder: "Ваше имя", required: true, class: "modal__input" %>
+           <%= f.phone_field :phone, placeholder: "Ваш телефон", required: true, class: "modal__input" %>
+           <%= f.button t('Жду звонка'), class: "btn  btn--filled  modal__button" %>
+        <% end %>
 	</div><!-- .modal__outer -->
 </section><!-- .modal -->
