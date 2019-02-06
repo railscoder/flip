@@ -2,7 +2,7 @@
 lock "~> 3.11.0"
 
 set :application, "cleanspin"
-set :repo_url, "https://github.com/Melchakovartem/yu.git"
+set :repo_url, "https://github.com/railscoder/flip.git"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/deployer/cleanspin"
