@@ -281,7 +281,7 @@ p:not(:last-child) {
 	-ms-flex: none;
 	flex: none;
 	max-width: 470px;
-	padding: 250px 0 0;
+	padding: 100px 0 0;
 }
 
 .prototype__buttons {
